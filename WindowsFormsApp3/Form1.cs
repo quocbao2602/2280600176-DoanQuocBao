@@ -21,10 +21,10 @@ namespace WindowsFormsApp3
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                // Xóa dòng được chọn
+              
                 listView1.Items.Remove(listView1.SelectedItems[0]);
 
-                // Cập nhật lại số thứ tự (STT)
+                
                 for (int i = 0; i < listView1.Items.Count; i++)
                 {
                     listView1.Items[i].SubItems[0].Text = (i + 1).ToString();
@@ -38,23 +38,23 @@ namespace WindowsFormsApp3
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Kiểm tra nếu các TextBox có dữ liệu
+            
             if (!string.IsNullOrWhiteSpace(textBox1.Text) &&
                 !string.IsNullOrWhiteSpace(textBox2.Text) &&
                 !string.IsNullOrWhiteSpace(textBox3.Text))
             {
-                // Kiểm tra STT có hợp lệ không
+               
                 if (int.TryParse(textBox1.Text, out int stt))
                 {
-                    // Tạo dòng mới
-                    ListViewItem item = new ListViewItem(textBox1.Text); // STT
-                    item.SubItems.Add(textBox2.Text); // Họ và Tên đệm
-                    item.SubItems.Add(textBox3.Text); // Tên
+                  
+                    ListViewItem item = new ListViewItem(textBox1.Text); 
+                    item.SubItems.Add(textBox2.Text); 
+                    item.SubItems.Add(textBox3.Text); 
 
-                    // Thêm vào ListView
+                
                     listView1.Items.Add(item);
 
-                    // Xóa nội dung các TextBox sau khi thêm
+                   
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
@@ -77,16 +77,16 @@ namespace WindowsFormsApp3
         !string.IsNullOrWhiteSpace(textBox2.Text) &&
         !string.IsNullOrWhiteSpace(textBox3.Text))
             {
-                // Kiểm tra STT có hợp lệ không
+               
                 if (int.TryParse(textBox1.Text, out int stt))
                 {
-                    // Sửa dòng được chọn
+                    
                     ListViewItem selectedItem = listView1.SelectedItems[0];
-                    selectedItem.SubItems[0].Text = textBox1.Text; // Sửa STT
-                    selectedItem.SubItems[1].Text = textBox2.Text; // Sửa Họ và Tên đệm
-                    selectedItem.SubItems[2].Text = textBox3.Text; // Sửa Tên
+                    selectedItem.SubItems[0].Text = textBox1.Text; 
+                    selectedItem.SubItems[1].Text = textBox2.Text; 
+                    selectedItem.SubItems[2].Text = textBox3.Text; 
 
-                    // Xóa nội dung các TextBox sau khi sửa
+                    
                     textBox1.Text = "";
                     textBox2.Text = "";
                     textBox3.Text = "";
